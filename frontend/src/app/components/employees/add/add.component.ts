@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { EmployeeService } from '../../../services/employee.service';
-import { Employee } from '../../../modelInterfaces/employee.model';
 
 @Component({
   selector: 'app-create',
@@ -11,18 +9,8 @@ import { Employee } from '../../../modelInterfaces/employee.model';
   styleUrls: ['./add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
-
-  createForm: FormGroup;
   currentEmployee;
-
-  constructor(private employeeService: EmployeeService, private fb: FormBuilder, private router: Router) {
-    this.createForm = this.fb.group({
-      firstName: ['', Validators.required],
-      middleName: '',
-      lastName: '',
-      gender: ''
-    });
-  }
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   addEmployee() {
     this.employeeService.addEmployee(this.currentEmployee).subscribe(() => {
@@ -32,9 +20,9 @@ export class EmployeeAddComponent implements OnInit {
 
   ngOnInit() {
      this.currentEmployee = {
-      firstName: 'Joseph',
-      middleName: 'Wambua',
-      lastName: 'Joshua',
+      firstName: '',
+      middleName: '',
+      lastName: '',
       mobileNo: '',
       personalEmail: '',
       workEmail: '',
