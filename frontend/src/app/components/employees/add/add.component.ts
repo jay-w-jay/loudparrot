@@ -1,15 +1,68 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { EmployeeService } from '../../../services/employee.service';
+import { Employee } from '../../../modelInterfaces/employee.model';
 
 @Component({
-  selector: 'app-add',
+  selector: 'app-create',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
 
-  constructor() { }
+  createForm: FormGroup;
+  currentEmployee;
+
+  constructor(private employeeService: EmployeeService, private fb: FormBuilder, private router: Router) {
+    this.createForm = this.fb.group({
+      firstName: ['', Validators.required],
+      middleName: '',
+      lastName: '',
+      gender: ''
+    });
+  }
+
+  addEmployee() {
+    this.employeeService.addEmployee(this.currentEmployee).subscribe(() => {
+      this.router.navigate(['/employee/list']);
+    })
+  }
 
   ngOnInit() {
+     this.currentEmployee = {
+      firstName: 'Joseph',
+      middleName: 'Wambua',
+      lastName: 'Joshua',
+      mobileNo: '',
+      personalEmail: '',
+      workEmail: '',
+      gender: 'Male',
+      telNo: '',
+      homeAddress: '',
+      homeTown: '',
+      postCode: '',
+      idNo: 0,
+      pinNo: '',
+      nssfNo: '',
+      nhifNo: '',
+      dateOfBirth: new Date(),
+      dateEmployed: new Date(),
+      contractType: '',
+      departmentId: '',
+      contractSoftCopy: '',
+      bankName: '',
+      bankBranch: '',
+      accountNo: '',
+      bankCode: '',
+      branchCode: '',
+      hasOvertime: false,
+      nextOfKinName: '',
+      nextOfKinRelationship: '',
+      nextOfKinTel: '',
+      nextOfKinEmail: ''
+      };
   }
 
 }
