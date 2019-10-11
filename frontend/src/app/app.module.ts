@@ -20,7 +20,8 @@ import { MatToolbarModule,
   MatSnackBarModule,
   MatMenuModule,
   MatSidenavModule,
-  MatListModule
+  MatListModule,
+  MatCheckboxModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,8 +31,8 @@ import { EmployeeListComponent } from './components/employees/list/list.componen
 import { EmployeeAddComponent } from './components/employees/add/add.component';
 import { EmployeeEditComponent } from './components/employees/edit/edit.component';
 import { DepartmentListComponent } from './components/departments/list/list.component';
-import { DepartmentAddComponent } from './components/departments/add/add.component';
-import { DepartmentEditComponent } from './components/departments/edit/edit.component';
+import { DepartmentAddComponent } from './components/departments/add_edit/add.component';
+import { DepartmentEditComponent } from './components/departments/add_edit/edit.component';
 
 const routes: Routes = [
   { path: 'employee/add', component: EmployeeAddComponent},
@@ -72,6 +73,7 @@ const routes: Routes = [
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    MatCheckboxModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule

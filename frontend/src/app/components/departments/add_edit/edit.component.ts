@@ -9,11 +9,11 @@ import { Department } from '../../../modelInterfaces/department.model';
 
 @Component({
   selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  templateUrl: './addedit.component.html',
+  styleUrls: ['./addedit.component.css']
 })
 export class DepartmentEditComponent implements OnInit {
-
+  isNew: Boolean
   id: String;
   currentDepartment: any = {};
 
@@ -24,13 +24,14 @@ export class DepartmentEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.id;
+      this.isNew = false;
       this.empService.getDepartmentById(this.id).subscribe(res => {
         this.currentDepartment = res;
       });
     });
   }
 
-  updateDepartment() {
+  saveDepartment() {
     this.empService.updateDepartment(this.currentDepartment).subscribe(() => {
       this.snackBar.open('Department updated successfully', 'OK', {
         duration: 3000
