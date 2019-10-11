@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-let User = new Schema({
+let userSchema = new Schema({
     userName: { type: String },
     firstName: { type: String },
     lastName: { type: String },
@@ -22,4 +22,4 @@ let User = new Schema({
     lastLogin: { type: Date }
 });
 
-export default mongoose.model('User', User);
+export default mongoose.model('User', userSchema);
