@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button>
+    <button mat-icon-button  *ngIf="authenticated">
       <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
     </button>
-    <h1>{{title}}</h1>
+    <h1 >{{title}}</h1>
     <span class="menu-spacer"></span>
-    <div>
+    <div  *ngIf="authenticated">
       <a mat-button [routerLink]="'/employee/list'"> Employees </a>
       <a mat-button [routerLink]="'/department/list'"> Departments </a>
       <a mat-button [routerLink]="'/account/list'"> Accounts </a>
@@ -14,14 +14,14 @@
     </div>
   </mat-toolbar-row>
 
-  <mat-toolbar-row>
+  <mat-toolbar-row *ngIf="authenticated">
       <span style="font-size: 12px;">HRM and Payroll made easy</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-sidenav-container>
+<mat-sidenav-container *ngIf="authenticated">
   <mat-sidenav #sidenav>
-    <mat-nav-list>
+    <mat-nav-list >
       <a mat-list-item [routerLink]="'/employee/list'"> Employees </a>
       <a mat-list-item [routerLink]="'/department/list'"> Departments </a>
       <a mat-list-item [routerLink]="'/account/list'"> Accounts </a>
@@ -36,3 +36,8 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<div style="height: 88vh;"  *ngIf="!authenticated">
+    <router-outlet></router-outlet>
+</div>

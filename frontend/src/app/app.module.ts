@@ -21,7 +21,9 @@ import { MatToolbarModule,
   MatMenuModule,
   MatSidenavModule,
   MatListModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatProgressSpinnerModule, 
+  MatDialogModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -50,7 +52,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'forgotpassword', component: ForgotPasswordComponent},
   { path: 'dashboard', component: DashboardComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -90,7 +92,9 @@ const routes: Routes = [
     MatCheckboxModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatProgressSpinnerModule, 
+    MatDialogModule
   ],
   providers: [EmployeeService, DepartmentService],
   bootstrap: [AppComponent]

@@ -17,6 +17,7 @@ connection.once('open', () => {
     console.log("Database connection successfully open");
 });
 
+require('./endpoints/authenticationEndpoint')(router);
 require('./endpoints/employeeEndpoint')(router);
 require('./endpoints/departmentEndpoint')(router);
 
