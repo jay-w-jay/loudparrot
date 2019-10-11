@@ -1,6 +1,38 @@
-<mat-toolbar>
-  <span>Payroll</span>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>{{title}}</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/employee/list'"> Employees </a>
+      <a mat-button [routerLink]="'/department/list'"> Departments </a>
+      <a mat-button [routerLink]="'/account/list'"> Accounts </a>
+      <a mat-button [routerLink]="'/shift/list'"> Shifts </a>
+      <a mat-button [routerLink]="'/activity/list'"> Settings </a>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+      <span style="font-size: 12px;">HRM and Payroll made easy</span>
+    </mat-toolbar-row>
 </mat-toolbar>
-<div>
-  <router-outlet></router-outlet>
-</div>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/employee/list'"> Employees </a>
+      <a mat-list-item [routerLink]="'/department/list'"> Departments </a>
+      <a mat-list-item [routerLink]="'/account/list'"> Accounts </a>
+      <a mat-list-item [routerLink]="'/shift/list'"> Shifts </a>
+      <a mat-list-item [routerLink]="'/activity/list'"> Settings </a>
+      <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

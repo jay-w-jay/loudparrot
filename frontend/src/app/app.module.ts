@@ -18,6 +18,9 @@ import { MatToolbarModule,
   MatTableModule,
   MatDividerModule,
   MatSnackBarModule,
+  MatMenuModule,
+  MatSidenavModule,
+  MatListModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -66,6 +69,9 @@ const routes: Routes = [
     MatTableModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule
