@@ -18,6 +18,7 @@ connection.once('open', () => {
 });
 
 require('./endpoints/employeeEndpoint')(router);
+require('./endpoints/departmentEndpoint')(router);
 
 app.use('/', router);
 app.listen(4371, () => console.log('ExpressJS Server for loudparrot running on port 4371'));

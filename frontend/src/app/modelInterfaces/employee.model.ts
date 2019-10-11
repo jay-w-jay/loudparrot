@@ -30,36 +30,3 @@ export interface Employee {
     nextOfKinTel: String; 
     nextOfKinEmail: String;
 }
-
-class CEmployee {
-    firstName: String;
-    middleName: String;
-    lastName: String;
-    mobileNo: String; 
-    personalEmail: String; 
-    workEmail: String; 
-    gender: String;
-    telNo: String; 
-    homeAddress: String; 
-    homeTown: String; 
-    postCode: String; 
-    idNo: Number;
-    pinNo: String; 
-    nssfNo: String; 
-    nhifNo: String; 
-    dateOfBirth: Date; 
-    dateEmployed: Date; 
-    contractType: String; 
-    departmentId: String; 
-    contractSoftCopy: String; 
-    bankName: String; 
-    bankBranch: String; 
-    accountNo: String; 
-    bankCode: String; 
-    branchCode: String; 
-    hasOvertime: Boolean 
-    nextOfKinName: String; 
-    nextOfKinRelationship: String;
-    nextOfKinTel: String; 
-    nextOfKinEmail: String;
-}
