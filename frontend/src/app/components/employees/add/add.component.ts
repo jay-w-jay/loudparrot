@@ -19,38 +19,7 @@ export class EmployeeAddComponent implements OnInit {
   }
 
   ngOnInit() {
-     this.currentEmployee = {
-      firstName: '',
-      middleName: '',
-      lastName: '',
-      mobileNo: '',
-      personalEmail: '',
-      workEmail: '',
-      gender: 'Male',
-      telNo: '',
-      homeAddress: '',
-      homeTown: '',
-      postCode: '',
-      idNo: 0,
-      pinNo: '',
-      nssfNo: '',
-      nhifNo: '',
-      dateOfBirth: new Date(),
-      dateEmployed: new Date(),
-      contractType: '',
-      departmentId: '',
-      contractSoftCopy: '',
-      bankName: '',
-      bankBranch: '',
-      accountNo: '',
-      bankCode: '',
-      branchCode: '',
-      hasOvertime: false,
-      nextOfKinName: '',
-      nextOfKinRelationship: '',
-      nextOfKinTel: '',
-      nextOfKinEmail: ''
-      };
+     this.currentEmployee = this.employeeService.getBlankEmployee();
   }
 
 }

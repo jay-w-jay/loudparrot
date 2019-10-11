@@ -16,11 +16,50 @@ export class EmployeeService {
     return this.http.get(`${this.uri}/employees`);
   }
 
+  getBlankEmployee() {
+    return {
+      firstName: '',
+      middleName: '',
+      lastName: '',
+      mobileNo: '',
+      personalEmail: '',
+      workEmail: '',
+      gender: 'Male',
+      telNo: '',
+      homeAddress: '',
+      homeTown: '',
+      postCode: '',
+      idNo: 0,
+      pinNo: '',
+      nssfNo: '',
+      nhifNo: '',
+      dateOfBirth: new Date(),
+      dateEmployed: new Date(),
+      contractType: '',
+      departmentId: '',
+      contractSoftCopy: '',
+      bankName: '',
+      bankBranch: '',
+      accountNo: '',
+      bankCode: '',
+      branchCode: '',
+      hasOvertime: false,
+      nextOfKinName: '',
+      nextOfKinRelationship: '',
+      nextOfKinTel: '',
+      nextOfKinEmail: ''
+      };
+  }
+
   getEmployeeById(id) {
     return this.http.get(`${this.uri}/employees/${id}`);
   }
 
   addEmployee(employee) {
     return this.http.post(`${this.uri}/employees/add`, employee);
+  }
+
+  updateEmployee(employee: any) {
+    return this.http.post(`${this.uri}/employees/update/${employee._id}`, employee);
   }
 }
