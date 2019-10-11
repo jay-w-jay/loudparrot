@@ -33,6 +33,11 @@ import { EmployeeEditComponent } from './components/employees/edit/edit.componen
 import { DepartmentListComponent } from './components/departments/list/list.component';
 import { DepartmentAddComponent } from './components/departments/add_edit/add.component';
 import { DepartmentEditComponent } from './components/departments/add_edit/edit.component';
+import { LoginComponent } from './components/login/login.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { RegisterComponent } from './components/register/register.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'employee/add', component: EmployeeAddComponent},
@@ -41,7 +46,11 @@ const routes: Routes = [
   { path: 'department/add', component: DepartmentAddComponent},
   { path: 'department/list', component: DepartmentListComponent},
   { path: 'department/edit/:id', component: DepartmentEditComponent},
-  { path: '', redirectTo: '/employee/list', pathMatch: 'full'}
+  { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'forgotpassword', component: ForgotPasswordComponent},
+  { path: 'dashboard', component: DashboardComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -52,7 +61,12 @@ const routes: Routes = [
     EmployeeEditComponent,
     DepartmentListComponent,
     DepartmentAddComponent,
-    DepartmentEditComponent
+    DepartmentEditComponent,
+    LoginComponent,
+    PasswordResetComponent,
+    ForgotPasswordComponent,
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
