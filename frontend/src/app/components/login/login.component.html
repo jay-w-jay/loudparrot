@@ -20,7 +20,7 @@
                                 <input type="password" class="form-control" placeholder="Password *" value="" />
                             </div>
                             
-                            <input type="submit"   value="Login" class="pull-left btnRegister"/>
+                            <input type="submit" (click)="login()"  value="Login" class="pull-left btnRegister"/>
                         </div>
                         
                         <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">New user? Click here to register</a>
