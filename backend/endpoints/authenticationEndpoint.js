@@ -15,4 +15,7 @@ module.exports = function(router) {
             });
     });
 
+    router.route('/users/authenticate').post((req, res) => {
+
+    });
 }

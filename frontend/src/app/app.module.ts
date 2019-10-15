@@ -42,15 +42,19 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
+  //Employee
   { path: 'employee/add', component: EmployeeAddComponent},
   { path: 'employee/list', component: EmployeeListComponent},
   { path: 'employee/edit/:id', component: EmployeeEditComponent},
+  //Department
   { path: 'department/add', component: DepartmentAddComponent},
   { path: 'department/list', component: DepartmentListComponent},
   { path: 'department/edit/:id', component: DepartmentEditComponent},
+  //Authentication
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'forgotpassword', component: ForgotPasswordComponent},
+  //General
   { path: 'dashboard', component: DashboardComponent},
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'}
 ];

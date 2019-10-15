@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router) {}
 
   login() {
-    localStorage.setItem('authenticated', 1);
+    localStorage.setItem('authenticated', "true");
       this.router.navigate(['/employee/list']);
   }
 

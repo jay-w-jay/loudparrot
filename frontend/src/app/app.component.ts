@@ -8,38 +8,32 @@ import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCanc
 })
 export class AppComponent {
   title = 'Simple Payroll';
-  authenticated: Boolean;
+  authenticated;
   navItems = [];  
+  currentUrl;
 
   constructor(private router: Router) {
     router.events.forEach((event) => {
       if(event instanceof NavigationStart) {
-        console.log("starting nav to " + event.url);
         var newUrl = event.url;
-        console.log("login index " + newUrl.indexOf("login"))
-        if (newUrl.indexOf("login") > 0 || newUrl.indexOf("register") > 0)  {
-          localStorage.setItem('authenticated', '0');
-        } else
-        {
-          console.log("not going to login");
-          var isAuthenticated = localStorage.getItem('authenticated');
-          console.log("is authenticated = " + isAuthenticated);
-          if (isAuthenticated) {
-            if (isAuthenticated === "1") {
-              // We are authenticated
-              this.authenticated = true;
-            } else {
-              //not authenticated
-              this.authenticated = false;
-              this.router.navigate(['/login']);
-              localStorage.setItem('authenticated', '0');
-            }
+        var localStorageAuthStatus = localStorage.getItem("authenticated");
+        if (localStorageAuthStatus) {
+          //local storage authentication tag is available
+          if (localStorageAuthStatus === "true") {
+            //this.authenticated = true;
+            console.log("User is authenticated");
+            //this.setAuthStatus(true)
           } else {
-            //Authentication status not set
-            this.router.navigate(['/login']);
-            localStorage.setItem('authenticated', '0');
+            //User has not been authenticated
+            this.setAuthStatus(false);
+            this.forceLogin();
+            console.error("User is not authenticated")
           }
+        } else {
+          //no authentication tag in local storage
+          this.forceLogin();
         }
+        this.currentUrl = newUrl;
       }
       // NavigationEnd
       // NavigationCancel
@@ -48,8 +42,12 @@ export class AppComponent {
     });
   }
 
+  setAuthStatus(authStatus) {
+    this.authenticated = authStatus;
+  }
+
   ngOnInit() {
-    this.authenticated = false;
+    console.log("ngInit");
     this.navItems = [
       {label: "Employees", path: "/employee/list"},
       {label: "Departments", path: "/department/list"},
@@ -61,7 +59,11 @@ export class AppComponent {
     if (!this.authenticated) {
       //redirect to login page
       if (!this.router.url.indexOf("register") || !this.router.url.indexOf("forgot"))
-        this.router.navigate(['/login']);
+        this.forceLogin();
     }
+  }
+
+  forceLogin() {
+    this.router.navigate(['/login']);
   }
 }
