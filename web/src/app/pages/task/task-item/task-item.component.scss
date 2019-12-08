@@ -1,0 +1,41 @@
+.task {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+
+  &:not(.complete) {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      box-shadow: 0 0 0 5px #eeeeee;
+    }
+  }
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+
+.act-icon {
+  padding: 3px;
+
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    &:hover {
+      transform: scale(1.25);
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+}
+
+.act-grp {
+  display: none;
+}
+
+.task:hover .act-grp {
+  display: block;
+}

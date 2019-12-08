@@ -1,0 +1,11 @@
+<div class="field has-addons new-item-widget">
+    <div class="control ">
+      <input  #taskTitleInput class="input" type="text" placeholder="Add a new task">
+    </div>
+    <div class="control" (click)="createTask(taskTitleInput.value); taskTitleInput.value = ''">
+      <a class="button is-info">
+        +
+      </a>
+    </div>
+  </div>
+

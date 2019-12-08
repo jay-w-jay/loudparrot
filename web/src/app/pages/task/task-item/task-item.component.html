@@ -1,0 +1,11 @@
+<div class="level task" >
+    <div class="level-left">
+      <div class="act-icon" [ngClass]="(task.completed) ? ['far fa-check-circle'] : ['far fa-circle']" (click)="onToggleComplete()"></div>
+      <div [ngClass]="{ 'complete': task.completed }">&nbsp;{{task.title}}</div>
+  </div>
+  <div class="level-right act-grp">
+      <i class="act-icon far fa-edit"></i>
+      <i class="act-icon far fa-times-circle" (click)="onDeleteTask()"></i>
+  </div>
+</div>
+
